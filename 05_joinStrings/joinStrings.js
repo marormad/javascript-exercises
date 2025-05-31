@@ -8,10 +8,15 @@
 */
 
 // Add your code right below, good luck!
+firstName = "Carlos"
+lastName = "Stevenson"
+birthYear = 1947
+thisYear = 1965
 
+greeting = "Hello! My name is Carlos Stevenson and I am " + (thisYear - birthYear) + " years old."
 
-
-
+fullName = firstName + " " + lastName
+age = thisYear - birthYear
 
 // Do not change this
 module.exports = {
