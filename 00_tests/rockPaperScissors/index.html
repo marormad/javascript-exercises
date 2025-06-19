@@ -2,11 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src = "javascript.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>Project: Rock Paper Scissors</title>
+    
+    <style>
+        body {background-color: grey;}
+        .btn {background-color: #4CAF50;
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer;}
+        #logDiv p {
+            font-size: 18px;
+            margin: 4px 0;
+        }
+
+    </style>
 </head>
 <body>
+    <h1>Rock Paper Scissors Game: Now with UI!</h1>
+
+    <!--3 buttons that the user may choose from-->
+    <button class="btn" value="rock">ROCK</button>
+    <button class="btn" value="paper">PAPER</button>
+    <button class="btn" value="scissors">SCISSORS</button>
     
+    <!--DIV to display results after each round-->
+    <div id="logDiv"></div>
+
+    <script src = "javascript.js"></script>
 </body>
 </html>
