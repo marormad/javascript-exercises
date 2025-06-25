@@ -1,8 +1,35 @@
+body {
+    background-color: lightgray;
+}
+
+#pageTitle {
+    text-align: center;
+}
+
+#sizeCatcher {
+    margin-bottom: 10px;
+}
+
+#inputText {
+    width: 400px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+#btnGridGenerator {
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
 #bigContainer {
     display: flex;
     flex-wrap: wrap;
-    width: 400px;
-    height: 400px;
+    width: 960px;
+    height: 960px;
     border: 2px solid black;
 }
 
