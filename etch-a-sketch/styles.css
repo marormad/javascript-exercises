@@ -50,7 +50,7 @@ button {
     box-sizing: border-box;
     width: 25%;
     height: 25%;
-    border: 1px solid black;    
+    border: 1px solid rgb(75, 75, 75);    
 }
 
 .active {
@@ -60,7 +60,7 @@ button {
 };
 
 
-/* DROPDOWN MENU */
+/* ########## DROPDOWN MENU ########## */
 /* Dropdown Button */
 .btnDrop {
   background-color: #3498DB;

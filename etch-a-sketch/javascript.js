@@ -11,7 +11,8 @@ const btnRainbow = document.querySelector('#btnRainbow');
 const btnGreyScale = document.querySelector('#btnGreyScale');
 const btnDarken = document.querySelector('#btnDarken');
 const btnLighten = document.querySelector('#btnLighten');
-//const btnDrop = document.querySelector('.btnDrop');
+const btnClear = document.querySelector('#btnClear');
+const btnDrop = document.querySelector('.btnDrop');
 
 // Creation of 16 divs, that will appear as a grid with CSS
 // Basic grid with fixed size
@@ -55,8 +56,16 @@ btnLighten.addEventListener('click', function() {
     this.classList.add('active');
 });
 
+// Clear grid button
+btnClear.addEventListener('click', function () {
+    const divis = document.querySelectorAll('.divi');
+    divis.forEach((divi) => {
+        divi.style.backgroundColor = 'rgb(220, 220, 220)';
+    });
+});
+
 // DropDown button
-//btnDrop.addEventListener('click', enableDropDown);
+btnDrop.addEventListener('click', enableDropDown);
 
 // User input validator. Text must be a number between 1 and 100.
 // Default will be 16
@@ -166,8 +175,7 @@ function deactivateSideButton() {
     });
 }
 
-
-/* FOR FUTURE USE, DROPDOWN MENU
+/* ##### DROPDOWN MENU CODE ##### */
 // When the user clicks on the button, toggle between hiding and showing the dropdown content 
 function enableDropDown() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -182,4 +190,43 @@ window.onclick = function(event) {
         openDropdown.classList.remove('show');
       }
     }
-};*/
+};
+
+// Attach an eventListener to the first dropdown menu option
+document.querySelectorAll('.drawImage').forEach(option => {
+  option.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Step 1: Generate fresh grid
+    gridGenerator(100);
+    deactivateSideButton();
+
+    // Step 2: Load predefined image
+    const imgSrc = this.dataset.img;
+    const img = new Image();
+    img.onload = function () {
+        console.log("Image loaded");
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, 100, 100);
+      ctx.drawImage(img, 0, 0, 100, 100);
+
+      // Step 3: Get pixel data
+      const imageData = ctx.getImageData(0, 0, 100, 100).data;
+      const cells = document.querySelectorAll('.divi');
+
+      // Step 4: Apply colors to grid
+      cells.forEach((cell, i) => {
+        const x = i % 100;
+        const y = Math.floor(i / 100);
+        const index = (y * 100 + x) * 4;
+        const r = imageData[index];
+        const g = imageData[index + 1];
+        const b = imageData[index + 2];
+        cell.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      });
+    };
+
+    img.src = imgSrc;
+  });
+});
