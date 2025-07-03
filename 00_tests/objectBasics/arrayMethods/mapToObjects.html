@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map to Objects</title>
+    <style>* {background-color: grey};</style>
+</head>
+<body>
+    <script>
+        /*You have an array of user objects, each one has name, surname and id.
+        Write the code to create another array from it, of objects with id and fullName, where fullName is 
+        generated from name and surname. */
+
+        var john = { name: "John", surname: "Smith", id: 1 };
+        var pete = { name: "Pete", surname: "Hunt", id: 2 };
+        var mary = { name: "Mary", surname: "Key", id: 3 };
+
+        var users = [ john, pete, mary ];
+
+        // First we map name + surname for each object
+        // It is not needed to achieve the ultimate goal (array of objects)
+        var namesMapped = users.map(user => user.name + " " + user.surname);
+
+        // Now we map the previous array plus the id's        
+        var usersMapped = users.map(user => ({
+            fullName: user.name + " " + user.surname,
+            id: user.id}));        
+
+        /*
+        usersMapped = [
+        { fullName: "John Smith", id: 1 },
+        { fullName: "Pete Hunt", id: 2 },
+        { fullName: "Mary Key", id: 3 }
+        ]
+        */
+
+        alert( usersMapped[0].id ) // 1
+        alert( usersMapped[0].fullName ) // John Smith
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort users by age</title>
+    <style>* {background-color: gray};</style>
+</head>
+<body>
+    <script>
+        /* Write the function sortByAge(users) that gets an array of objects with the age property
+        and sorts them by age. */
+        var john = { name: "John", age: 25 };
+        var pete = { name: "Pete", age: 30 };
+        var mary = { name: "Mary", age: 28 };
+
+        var people = [ john, pete, mary ];
+        
+        function sortByAge(users) { // New feature: the 'spread operator', so the original array is not modified
+            return [...users].sort((person1, person2) => person1.age - person2.age);
+        };
+
+        var sortedPeople = sortByAge(people);
+        console.log(sortedPeople[1]);
+
+    </script>    
+</body>
+</html>
